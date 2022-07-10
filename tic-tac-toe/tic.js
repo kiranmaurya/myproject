@@ -182,7 +182,8 @@ function playTicTacToe(whoseTurn) {
 		showBoard(board);
 		moveIndex++;
 		whoseTurn = HUMAN;
-	  } else if (whoseTurn == HUMAN) {
+	  } 
+	  else if (whoseTurn == HUMAN) {
 		console.log("You can insert in the following positions : ");
 		for (var i = 0; i < SIDE; i++)
 		  for (var j = 0; j < SIDE; j++)
@@ -226,19 +227,25 @@ function main(choice){
 	console.log("\n-------------------------------------------------------------------\n\n");
 	console.log("\t\t\t Tic-Tac-Toe\n");
 	console.log("\n-------------------------------------------------------------------\n\n");
-	let cont = 'y';
+	const start = document.getElementById('startBtn')
+	const board = document.getElementById('board')
+	var cont = 'y';
 	do {
 	var choice = 'y';
 	choice = prompt("Do you want to start first?(y/n) : " ,"");
-	if (choice == false)
-	    playTicTacToe(COMPUTER);
-	else if (choice == true)
-		playTicTacToe(HUMAN);
-	else
+//if (choice == false)
+	if (choice == 'n'){
+	    playTicTacToe(COMPUTER);}
+//else if (choice == true)
+	else if (choice == 'y'){
+		playTicTacToe(HUMAN);}
+	else{
 	document.getElementById("print").innerHTML += "Invalid choice\n"
-
-	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
-	console.log(exitOrNot);
-	} while (exitOrNot);
-	return;
+// 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
+// 	console.log(exitOrNot);
+// 	} while (exitOrNot);
+	cont = prompt("Do you want to start first?(y/n) : " ,"");
+	}
+	} while (cont == n);
+	return 0;
 }

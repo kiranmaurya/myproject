@@ -12,7 +12,7 @@
 		<h1>Welcome To My Tic Tac Toe</h1>
 		<br><br>
 		<div>
-			<ul class="board">
+			<ul class="board" id="board">
 				<li class="cells" id="1"></li>
 				<li class="cells" id="2"></li>
 				<li class="cells" id="3"></li>
@@ -26,6 +26,9 @@
 		</div>
 		<!-- Grid end here -->
 		<br><br><br>
+		<button id="startBtn" onclick="main()">
+			START
+		</button>
 		<!-- Button to reset game -->
 		<button id="but" onclick="func_reset()">
 			RESET
@@ -35,12 +38,12 @@
 		<p id="print"></p>
 	</div>
 </body>
-<script>
+<!-- <script>
 	$(window).on('load', function () {
 		var answer = window.confirm("You want to play first?");
 		console.log(answer);
 		main(answer);
 	})
-</script>
+</script> -->
 
 </html>
