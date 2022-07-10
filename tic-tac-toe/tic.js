@@ -128,7 +128,7 @@ function main(){
 		console.log("Invalid choice\n");
 
 	console.log("\nDo you want to quit(y/n) : ");
-	var cont = 'n';
+	cont = 'n';
 	} while (cont == 'n');
 	return;
 }
