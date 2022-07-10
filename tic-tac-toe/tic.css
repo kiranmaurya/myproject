@@ -9,19 +9,6 @@
 		color: white;
 		font-size: 45px;
 	}
-
-	/* 3*3 Grid */
-	#b1, #b2, #b3, #b4, #b5,
-	#b6, #b7, #b8, #b9 {
-		width: 100px;
-		height: 80px;
-		margin: auto;
-		font-size: 30px;
-		text-align: center;
-		background:  rgb(8, 47, 71);
-		color: aliceblue;
-		border-radius: 20pt;
-	}
 	/* Reset Button */
 	#but {
 		width: 95px;
@@ -36,9 +23,7 @@
 
 	/* Player turn space */
 	#print {
-		font-family: Verdana,
-			Geneva, Tahoma, sans-serif;
-
+		font-family: Verdana,Geneva, Tahoma, sans-serif;
 		color: rgb(3, 14, 26);
 		font-size: 20px;
 	}
@@ -46,4 +31,22 @@
 	/* Main Container */
 	#main {
 		text-align: center;
+	}
+	ul {
+		margin: auto;
+		width: 400px;
+		height: 250px;
+	}
+
+	li {
+		float: left;
+		list-style-type: none;
+		margin: 5px;
+		width: 100px;
+		height: 80px;
+		font-size: 70px;
+		text-align: center;
+		background: rgb(8, 47, 71);
+		color: aliceblue;
+		border-radius: 20pt;
 	}
