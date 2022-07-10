@@ -29,10 +29,12 @@ function showBoard(board) {
   
   // Initially the board to '*' as said
 
-function initialise( board) {
+function initialise(board) {
 	for (var i = 0; i < SIDE; i++) {
-	  for (var j = 0; j < SIDE; j++)
+	  for (var j = 0; j < SIDE; j++){
+		console.log(i+" "+j);
 		board[i][j] = '*';
+	  }
 	}
   }
   
@@ -151,7 +153,7 @@ function  bestMove(board,moveIndex) {
 
 // Function for playgame
 function playTicTacToe(whoseTurn) {
-	var board = [[]];
+	var board = [[],[],[]];
 	var moveIndex = 0, x = 0, y = 0;
 	initialise(board);
 	showInstructions();
