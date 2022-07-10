@@ -223,3 +223,4 @@ function main(){
 	} while (cont == 'n');
 	return;
 }
+main();
