@@ -82,7 +82,7 @@ function playTicTacToe(whoseTurn) {
 			if (board[i][j] == '*')
 			  console.log("%d ", (i * 3 + j) + 1);
 		console.log("\n\nEnter the position = ");
-		scanf("%d", & n);
+		var n = prompt("\n\nEnter the position = ");
 		n--;
 		x = n / SIDE;
 		y = n % SIDE;
@@ -121,7 +121,7 @@ function main(){
 	console.log("Do you want to start first?(y/n) : ");
 	var choice = 'n';
 	if (choice == 'n')
-		playTicTacToe(COMPUTER);
+	playTicTacToe(COMPUTER);
 	else if (choice == 'y')
 		playTicTacToe(HUMAN);
 	else
