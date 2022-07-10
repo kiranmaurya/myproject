@@ -6,6 +6,7 @@
 	<!-- JavaScript file included -->
 	<script src="tic.js"></script>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <body>
 	<div id="main">
 		<h1>Welcome To My Tic Tac Toe</h1>
@@ -29,15 +30,17 @@
 		<button id="but" onclick="func_reset()">
 			RESET
 		</button>
-
 		<br><br>
 		<!-- Space to show player turn -->
 		<p id="print"></p>
-
-
-
-
 	</div>
 </body>
+<script>
+	$(window).on('load', function () {
+		var answer = window.confirm("You want to play first?");
+		console.log(answer);
+		main(answer);
+	})
+</script>
 
 </html>

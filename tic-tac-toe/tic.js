@@ -215,25 +215,23 @@ function playTicTacToe(whoseTurn) {
 	}
   }
   
-function main(){
+function main(choice){
 	console.log("\n-------------------------------------------------------------------\n\n");
 	console.log("\t\t\t Tic-Tac-Toe\n");
 	console.log("\n-------------------------------------------------------------------\n\n");
 	let cont = 'y';
 	do {
-	var choice;
 	console.log("Do you want to start first?(y/n) : ");
-	var choice = 'n';
-	if (choice == 'n')
+	if (choice == false)
 	playTicTacToe(COMPUTER);
-	else if (choice == 'y')
+	else if (choice == true)
 		playTicTacToe(HUMAN);
 	else
 		console.log("Invalid choice\n");
 
 	console.log("\nDo you want to quit(y/n) : ");
-	cont = 'y';
-	} while (cont == 'n');
+	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
+	console.log(exitOrNot);
+	} while (exitOrNot);
 	return;
 }
-main();
