@@ -20,11 +20,22 @@ function func_reset() {
 
 }
 function showBoard(board) {
-	console.log("\t\t\t",board[0][0] ,"|", board[0][1] ,"|", board[0][2],"/n");
+	console.log("\t\t\t",board[0][0] ,"|", board[0][1] ,"|", board[0][2],"\n");
 	console.log("\t\t\t-----------\n");
-	console.log("\t\t\t",board[1][0] ,"|", board[1][1] ,"|", board[1][2],"/n");
+	console.log("\t\t\t",board[1][0] ,"|", board[1][1] ,"|", board[1][2],"\n");
 	console.log("\t\t\t-----------\n");
-	console.log("\t\t\t" ,board[2][0] ,"|", board[2][1] ,"|", board[2][2],"/n");
+	console.log("\t\t\t" ,board[2][0] ,"|", board[2][1] ,"|", board[2][2],"\n");
+  }
+  
+  //Show Instructions function
+
+ function showInstructions() {
+	console.log("\nChoose a cell numbered from 1 to 9 as below and play\n\n");
+	console.log("\t\t\t 1 | 2 | 3 \n");
+	console.log("\t\t\t-----------\n");
+	console.log("\t\t\t 4 | 5 | 6 \n");
+	console.log("\t\t\t-----------\n");
+	console.log("\t\t\t 7 | 8 | 9 \n\n");
   }
   
   // Initially the board to '*' as said
@@ -32,7 +43,6 @@ function showBoard(board) {
 function initialise(board) {
 	for (var i = 0; i < SIDE; i++) {
 	  for (var j = 0; j < SIDE; j++){
-		console.log(i+" "+j);
 		board[i][j] = '*';
 	  }
 	}
@@ -161,7 +171,7 @@ function playTicTacToe(whoseTurn) {
 	  var n;
 	  if (whoseTurn == COMPUTER) {
 		n = bestMove(board, moveIndex);
-		x = n / SIDE;
+		x = parseInt(n / SIDE);
 		y = n % SIDE;
 		board[x][y] = COMPUTERMOVE;
 		console.log("COMPUTER has put a %c in cell %d\n\n", COMPUTERMOVE, n + 1);
@@ -176,8 +186,9 @@ function playTicTacToe(whoseTurn) {
 			  console.log("%d ", (i * 3 + j) + 1);
 		console.log("\n\nEnter the position = ");
 		var n = prompt("\n\nEnter the position = ");
+		console.log(n);
 		n--;
-		x = n / SIDE;
+		x =parseInt(n / SIDE);
 		y = n % SIDE;
 		if (board[x][y] == '*' && n < 9 && n >= 0) {
 		  board[x][y] = HUMANMOVE;
@@ -221,7 +232,7 @@ function main(){
 		console.log("Invalid choice\n");
 
 	console.log("\nDo you want to quit(y/n) : ");
-	cont = 'n';
+	cont = 'y';
 	} while (cont == 'n');
 	return;
 }
