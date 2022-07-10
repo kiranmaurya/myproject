@@ -237,7 +237,6 @@ function main(choice){
 	else
 	document.getElementById("print").innerHTML += "Invalid choice\n"
 
-	cont = prompt("\nDo you want to quit(y/n) : ","");
 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
 	console.log(exitOrNot);
 	} while (exitOrNot);
