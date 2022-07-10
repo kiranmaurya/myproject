@@ -52,10 +52,14 @@ function initialise(board) {
 
 // Function to declareWinner
 function declareWinner(whoseTurn) {
-	if (whoseTurn == COMPUTER)
+	if (whoseTurn == COMPUTER){
 	  console.log("COMPUTER has won\n");
-	else
+	  document.getElementById("print").innerHTML += "COMPUTER has won\n"
+}
+	else {
 	  console.log("HUMAN has won\n");
+	  document.getElementById("print").innerHTML += "HUMAN has won\n"
+	}
   }
   
 
@@ -204,8 +208,11 @@ function playTicTacToe(whoseTurn) {
 		}
 	  }
 	}
-	if (gameOver(board) == false && moveIndex == SIDE * SIDE)
+	if (gameOver(board) == false && moveIndex == SIDE * SIDE){
 	  console.log("It's a draw\n");
+	  document.getElementById("print").innerHTML += "It's a draw\n"
+	}
+
 	else {
 	  if (whoseTurn == COMPUTER)
 		whoseTurn = HUMAN;
@@ -221,15 +228,16 @@ function main(choice){
 	console.log("\n-------------------------------------------------------------------\n\n");
 	let cont = 'y';
 	do {
-	console.log("Do you want to start first?(y/n) : ");
+	var choice = 'y';
+	choice = prompt("Do you want to start first?(y/n) : " ,"");
 	if (choice == false)
-	playTicTacToe(COMPUTER);
+	    playTicTacToe(COMPUTER);
 	else if (choice == true)
 		playTicTacToe(HUMAN);
 	else
-		console.log("Invalid choice\n");
+	document.getElementById("print").innerHTML += "Invalid choice\n"
 
-	console.log("\nDo you want to quit(y/n) : ");
+	cont = prompt("\nDo you want to quit(y/n) : ","");
 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
 	console.log(exitOrNot);
 	} while (exitOrNot);
