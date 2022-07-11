@@ -165,19 +165,28 @@ function  bestMove(board,moveIndex) {
 	return x * 3 + y;
   }
 
+function setSymbol(n,whoseTurn){
+	cellId = "#"+n;
+	if (whoseTurn == COMPUTER) {
+		$(cellId).text(COMPUTERMOVE);
+	} else {
+		$(cellId).text(HUMANMOVE);
+	}
+}
 // Function for playgame
-function playTicTacToe(whoseTurn) {
+function playTicTacToe(whoseTurn,n) {
 	var board = [[],[],[]];
 	var moveIndex = 0, x = 0, y = 0;
 	initialise(board);
 	showInstructions();
-	while (gameOver(board) == false && moveIndex != SIDE * SIDE) {
+	if(gameOver(board) == false && moveIndex != SIDE * SIDE) {
 	  var n;
 	  if (whoseTurn == COMPUTER) {
 		n = bestMove(board, moveIndex);
 		x = parseInt(n / SIDE);
 		y = n % SIDE;
 		board[x][y] = COMPUTERMOVE;
+		setSymbol(n,whoseTurn);
 		console.log("COMPUTER has put a %c in cell %d\n\n", COMPUTERMOVE, n + 1);
 		showBoard(board);
 		moveIndex++;
@@ -189,19 +198,18 @@ function playTicTacToe(whoseTurn) {
 		  for (var j = 0; j < SIDE; j++)
 			if (board[i][j] == '*')
 			  console.log("%d ", (i * 3 + j) + 1);
-		console.log("\n\nEnter the position = ");
-		var n = prompt("\n\nEnter the position = ");
 		console.log(n);
-		n--;
 		x =parseInt(n / SIDE);
 		y = n % SIDE;
 		if (board[x][y] == '*' && n < 9 && n >= 0) {
 		  board[x][y] = HUMANMOVE;
+		  setSymbol(n,whoseTurn);
 		  console.log("\nHUMAN has put a %c in cell %d\n\n", HUMANMOVE,
 			n + 1);
 		  showBoard(board);
 		  moveIndex++;
 		  whoseTurn = COMPUTER;
+		  playTicTacToe(whoseTurn,null);
 		} else if (board[x][y] != '*' && n < 9 && n >= 0) {
 		  console.log("\nPosition is occupied, select any one place from the available places\n\n");
 		} else if (n < 0 || n > 8) {
@@ -237,8 +245,6 @@ function main(choice){
 	if (choice == 'n'){
 	    playTicTacToe(COMPUTER);}
 //else if (choice == true)
-	else if (choice == 'y'){
-		playTicTacToe(HUMAN);}
 	else{
 	document.getElementById("print").innerHTML += "Invalid choice\n"
 // 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
