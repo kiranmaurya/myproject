@@ -244,7 +244,7 @@ function main(choice){
 // 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
 // 	console.log(exitOrNot);
 // 	} while (exitOrNot);
-	cont = prompt("Do you want to start first?(y/n) : " ,"");
+	cont = prompt("Do you want to quit game?(y/n) : " ,"");
 	}
 	} while (cont == n);
 	return 0;
