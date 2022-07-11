@@ -13,15 +13,15 @@
 		<br><br>
 		<div>
 			<ul class="board" id="board">
-				<li class="cells" id="1"></li>
-				<li class="cells" id="2"></li>
-				<li class="cells" id="3"></li>
-				<li class="cells" id="4"></li>
-				<li class="cells" id="5"></li>
-				<li class="cells" id="6"></li>
-				<li class="cells" id="7"></li>
-				<li class="cells" id="8"></li>
-				<li class="cells" id="9"></li>
+				<li class="cells" id="0" onclick="humunclick(0)"></li>
+				<li class="cells" id="1" onclick="humunclick(1)"></li>
+				<li class="cells" id="2" onclick="humunclick(2)"></li>
+				<li class="cells" id="3" onclick="humunclick(3)"></li>
+				<li class="cells" id="4" onclick="humunclick(4)"></li>
+				<li class="cells" id="5" onclick="humunclick(5)"></li>
+				<li class="cells" id="6" onclick="humunclick(6)"></li>
+				<li class="cells" id="7" onclick="humunclick(7)"></li>
+				<li class="cells" id="8" onclick="humunclick(8)"></li>
 			</ul>
 		</div>
 		<!-- Grid end here -->
@@ -38,12 +38,15 @@
 		<p id="print"></p>
 	</div>
 </body>
-<!-- <script>
-	$(window).on('load', function () {
-		var answer = window.confirm("You want to play first?");
-		console.log(answer);
-		main(answer);
-	})
-</script> -->
+<script>
+	// $(window).on('load', function () {
+	// 	var answer = window.confirm("You want to play first?");
+	// 	console.log(answer);
+	// 	main(answer);
+	// })
+	function humunclick(n){
+		playTicTacToe(HUMAN,n);
+	}
+</script>
 
 </html>
