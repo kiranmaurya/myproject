@@ -4,7 +4,8 @@ let HUMAN=2;
 let SIDE=3;
 let COMPUTERMOVE='O';
 let HUMANMOVE='X';
-
+let board = [[],[],[]];
+let moveIndex = 0;
 // Function to reset game
 function func_reset() {
 	location.reload();
@@ -25,7 +26,7 @@ function showBoard(board) {
 	console.log("\t\t\t",board[1][0] ,"|", board[1][1] ,"|", board[1][2],"\n");
 	console.log("\t\t\t-----------\n");
 	console.log("\t\t\t" ,board[2][0] ,"|", board[2][1] ,"|", board[2][2],"\n");
-  }
+}
   
   //Show Instructions function
 
@@ -46,7 +47,7 @@ function initialise(board) {
 		board[i][j] = '*';
 	  }
 	}
-  }
+}
   
   
 
@@ -173,85 +174,50 @@ function setSymbol(n,whoseTurn){
 		$(cellId).text(HUMANMOVE);
 	}
 }
-// Function for playgame
-function playTicTacToe(whoseTurn,n) {
-	var board = [[],[],[]];
-	var moveIndex = 0, x = 0, y = 0;
-	initialise(board);
-	showInstructions();
-	if(gameOver(board) == false && moveIndex != SIDE * SIDE) {
-	  var n;
-	  if (whoseTurn == COMPUTER) {
-		n = bestMove(board, moveIndex);
-		x = parseInt(n / SIDE);
-		y = n % SIDE;
-		board[x][y] = COMPUTERMOVE;
+function checkWhoWin(whoseTurn){
+	if (gameOver(board) == false && moveIndex == SIDE * SIDE){
+		console.log("It's a draw\n");
+		document.getElementById("print").innerHTML += "It's a draw\n"
+	} else {
+		if (whoseTurn == COMPUTER)
+			whoseTurn = HUMAN;
+		else if (whoseTurn == HUMAN)
+			whoseTurn = COMPUTER;
+		declareWinner(whoseTurn);
+	}
+	return 0;
+}
+function humanPlay(whoseTurn,n){
+	var x = 0, y = 0;
+	x =parseInt(n / SIDE);
+	y = n % SIDE;
+	if (board[x][y] == '*' && n < 9 && n >= 0) {
+		board[x][y] = HUMANMOVE;
 		setSymbol(n,whoseTurn);
-		console.log("COMPUTER has put a %c in cell %d\n\n", COMPUTERMOVE, n + 1);
 		showBoard(board);
 		moveIndex++;
-		whoseTurn = HUMAN;
-	  } 
-	  else if (whoseTurn == HUMAN) {
-		console.log("You can insert in the following positions : ");
-		for (var i = 0; i < SIDE; i++)
-		  for (var j = 0; j < SIDE; j++)
-			if (board[i][j] == '*')
-			  console.log("%d ", (i * 3 + j) + 1);
-		console.log(n);
-		x =parseInt(n / SIDE);
-		y = n % SIDE;
-		if (board[x][y] == '*' && n < 9 && n >= 0) {
-		  board[x][y] = HUMANMOVE;
-		  setSymbol(n,whoseTurn);
-		  console.log("\nHUMAN has put a %c in cell %d\n\n", HUMANMOVE,
-			n + 1);
-		  showBoard(board);
-		  moveIndex++;
-		  whoseTurn = COMPUTER;
-		  playTicTacToe(whoseTurn,null);
-		} else if (board[x][y] != '*' && n < 9 && n >= 0) {
-		  console.log("\nPosition is occupied, select any one place from the available places\n\n");
-		} else if (n < 0 || n > 8) {
-		  console.log("Invalid position\n");
-		}
-	  }
-	}
-	if (gameOver(board) == false && moveIndex == SIDE * SIDE){
-	  console.log("It's a draw\n");
-	  document.getElementById("print").innerHTML += "It's a draw\n"
-	}
-
-	else {
-	  if (whoseTurn == COMPUTER)
-		whoseTurn = HUMAN;
-	  else if (whoseTurn == HUMAN)
+		checkWhoWin(whoseTurn);
 		whoseTurn = COMPUTER;
-	  declareWinner(whoseTurn);
+		computerPlay(whoseTurn,null);
 	}
-  }
-  
+}
+function computerPlay(whoseTurn,n){
+	var x = 0, y = 0;
+	n = bestMove(board, moveIndex);
+	x = parseInt(n / SIDE);
+	y = n % SIDE;
+	board[x][y] = COMPUTERMOVE;
+	setSymbol(n,whoseTurn);
+	moveIndex++;
+	checkWhoWin(whoseTurn);
+	whoseTurn = HUMAN;
+}
+// Function for playgame
 function main(choice){
-	console.log("\n-------------------------------------------------------------------\n\n");
-	console.log("\t\t\t Tic-Tac-Toe\n");
-	console.log("\n-------------------------------------------------------------------\n\n");
-	const start = document.getElementById('startBtn')
-	const board = document.getElementById('board')
-	var cont = 'y';
-	do {
-	var choice = 'y';
+	initialise(board);
 	choice = prompt("Do you want to start first?(y/n) : " ,"");
-//if (choice == false)
 	if (choice == 'n'){
-	    playTicTacToe(COMPUTER);}
-//else if (choice == true)
-	else{
-	document.getElementById("print").innerHTML += "Invalid choice\n"
-// 	var exitOrNot = window.confirm("\nDo you want to quit(y/n) : ");
-// 	console.log(exitOrNot);
-// 	} while (exitOrNot);
-	cont = prompt("Do you want to start first?(y/n) : " ,"");
+	    computerPlay(COMPUTER,null);
 	}
-	} while (cont == n);
 	return 0;
 }
