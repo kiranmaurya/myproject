@@ -179,11 +179,13 @@ function checkWhoWin(whoseTurn){
 		console.log("It's a draw\n");
 		document.getElementById("print").innerHTML += "It's a draw\n"
 	} else {
-		if (whoseTurn == COMPUTER)
+		if(gameOver(board)==true){
+			if (whoseTurn == COMPUTER)
 			whoseTurn = HUMAN;
-		else if (whoseTurn == HUMAN)
-			whoseTurn = COMPUTER;
-		declareWinner(whoseTurn);
+			else if (whoseTurn == HUMAN)
+				whoseTurn = COMPUTER;
+			declareWinner(whoseTurn);
+		}
 	}
 	return 0;
 }
