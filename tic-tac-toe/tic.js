@@ -182,11 +182,11 @@ function computerPlay(whoseTurn, n) {
     whoseTurn = HUMAN;
 }
 // Function for playgame
-function main(choice) {
-    initialise(board);
-    choice = prompt("Do you want to start first?(y/n) : ", "");
-    if (choice == 'n') {
-        computerPlay(COMPUTER, null);
-    }
-    return 0;
+function main() {
+     initialise(board);
+    // choice = prompt("Do you want to start first?(y/n) : ", "");
+    // if (choice == 'n') {
+    //     computerPlay(COMPUTER, null);
+    // }
+     return 0;
 }

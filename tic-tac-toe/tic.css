@@ -22,7 +22,10 @@ h1 {
 	cursor: pointer;
 	border-radius: 10pt;
 }
-
+#but:hover{
+	background-color: rgb(8, 47, 71);
+	color: white;
+}
 /* start Button */
 #startBtn {
 	width: 95px;
@@ -34,12 +37,17 @@ h1 {
 	cursor: pointer;
 	border-radius: 10pt;
 }
-
+#startBtn:hover{
+	background-color: rgb(8, 47, 71);
+	color: white;
+}
 /* Space to show messages */
 #print {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	color: rgb(3, 14, 26);
-	font-size: 25px;
+	align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 30px;
+    font-family: 'Kumar One Outline', cursive;
 }
 
 /* Main Container */
@@ -64,4 +72,18 @@ li {
 	background: rgb(8, 47, 71);
 	color: aliceblue;
 	border-radius: 20pt;
+}
+.btn{
+	width: 200px;
+	height: 100px;
+	margin: auto;
+	background-color: white ;
+	color: rgb(8, 47, 71);
+	font-size: 20px;
+	cursor: pointer;
+	border-radius: 10pt;
+}
+.btn:hover{
+	background-color: rgb(8, 47, 71);
+	color: white;
 }
