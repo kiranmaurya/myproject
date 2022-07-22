@@ -42,13 +42,13 @@ h1 {
 	text-align: center;
 }
 
-ul {
+.board {
 	margin: auto;
 	width: 400px;
 	height: 250px;
 }
 
-li {
+.cells {
 	float: left;
 	list-style-type: none;
 	margin: 5px;
